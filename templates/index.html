@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/bootstrap.rtl.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+    <style>
+        a{
+            text-decoration: none !important;
+        }
+    </style>
+    <title>دریافت کلید CSR</title>
+</head>
+<body>
+    <div class="container my-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-10">
+                <div class="card bg-light">
+                    <div class="card-header bg-primary .bg-gradient mb-3">
+                        <h3 class="card-title my-3 text-white">فرم دریافت کلید CSR</h3>
+                    </div>
+                    <div class="card-body">
+                        <form class="d-flex flex-column mb-3" action="/" method="post">
+                            <div class="mb-3">
+                                <label for="company-name" class="form-label mb-2">نام انگلیسی شرکت</label>
+                                <input id="company-name" name="company-name"  class="form-control" type="text">
+                            </div>
+                            <div class="mb-3">
+                                <label for="national-code" class="form-label mb-2">شناسه ملی</label>
+                                <input id="national-code" name="national-code"  class="form-control"type="text">
+                            </div>
+                            <div class="mb-3">
+                                <label for="fa-company-name" class="form-label mb-2">نام فارسی شرکت</label>
+                                <input id="fa-company-name" name="fa-company-name" class="form-control"type="text">
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label mb-2">ایمیل</label>
+                                <input id="email" name="email"  class="form-control"type="text">
+                            </div>
+                            <button type="submit" class="btn btn-primary mx-auto w-50">دریافت کلید</button>
+                        </form>
+                    </div>
+                    <div class="card-footer">
+                        {% if show_download_links %}
+                        <div class="mt-4 mb-2">
+                            <p class="text-center">فایل‌های شما با موفقیت ایجاد شدند. برای دانلود روی لینک‌های زیر کلیک کنید:</p>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <a href="{{ url_for('static', filename='fa.csr') }}" class="btn btn-link">دانلود فایل CSR</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ url_for('static', filename='fa.key') }}" class="btn btn-link">دانلود کلید خصوصی</a>
+                                </li>
+                                <li class="list-group-item">
+                                    <a href="{{ url_for('static', filename='fapub.txt') }}" class="btn btn-link" download>دانلود کلید عمومی</a>
+                                </li>
+                            </ul>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
